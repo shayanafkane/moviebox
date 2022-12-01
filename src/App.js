@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import Header from "./Components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "swiper/css";
+import "swiper/css/navigation";
+import Hero from "./Components/Hero";
 function App() {
   // useEffect(() => {
 
@@ -14,6 +17,7 @@ function App() {
   return (
     <div>
       <Header />
+      <Hero />
     </div>
   );
 }
