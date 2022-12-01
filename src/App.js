@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
-
+import Header from "./Components/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   // useEffect(() => {
 
@@ -11,8 +12,8 @@ function App() {
   // }, [])
 
   return (
-    <div className="App">
-      ss
+    <div>
+      <Header />
     </div>
   );
 }
