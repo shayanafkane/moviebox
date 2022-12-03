@@ -3,10 +3,11 @@ import { Button } from 'react-bootstrap'
 import { FaStar } from 'react-icons/fa'
 import axios from 'axios'
 export default function TopRatedMovies() {
-    const [data, setData] = useState()
     const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=06eab33cd5f147c733290f1947a2f9c0&language=en-US&page=1")
+    const [pageNumber, setPageNumber] = useState(1)
+    const [data, setData] = useState()
+    function GetData() {
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=06eab33cd5f147c733290f1947a2f9c0&language=en-US&page=${pageNumber}`)
             .then(res => {
                 setData(res.data.results)
                 setLoading(false)
@@ -14,7 +15,19 @@ export default function TopRatedMovies() {
             .catch(err => {
                 console.log(err)
             })
+    }
+    useEffect(() => {
+        GetData()
     }, [])
+
+    function nextPage() {
+        setPageNumber(pageNumber - 1)
+        setTimeout(() => {
+            GetData();
+        }, 10000)
+    }
+
+
     if (loading) {
         return <p>loading</p>
     } else {
@@ -48,8 +61,35 @@ export default function TopRatedMovies() {
                 })
 
                 }
+                <div className="box-pagination d-flex justify-content-center">
 
-
+                    <Button variant='primary' onClick={() => {
+                        setPageNumber(pageNumber + 1)
+                        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=06eab33cd5f147c733290f1947a2f9c0&language=en-US&page=${pageNumber + 1}`)
+                            .then(res => {
+                                setData(res.data.results)
+                                setLoading(false)
+                            })
+                            .catch(err => {
+                                console.log(err)
+                            })
+                    }} className='my-4 next'>Next</Button>
+                    {pageNumber == 1 ?
+                        <Button variant='secondary' disabled className='my-4 back'>Back</Button>
+                        :
+                        <Button variant='secondary' onClick={() => {
+                            setPageNumber(pageNumber - 1);
+                            axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=06eab33cd5f147c733290f1947a2f9c0&language=en-US&page=${pageNumber - 1}`)
+                                .then(res => {
+                                    setData(res.data.results)
+                                    setLoading(false)
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+                        }} className='my-4 back'>Back</Button>
+                    }
+                </div>
             </div>
         )
     }

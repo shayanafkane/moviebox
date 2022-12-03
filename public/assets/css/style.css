@@ -22,7 +22,7 @@ body {
     top: 0;
     z-index: 9999;
     width: 100%;
-    padding: 8px!important;
+    padding: 8px !important;
 }
 
 .swiperBox-Hero {
@@ -79,7 +79,13 @@ body {
     border-bottom: none !important;
 }
 
+.box-pagination button.back {
+    border-radius: 1px 10px 10px 1px !important;
+}
 
+.box-pagination button.next {
+    border-radius: 10px 0px 0px 10px;
+}
 
 
 @media screen and (max-width:991px) {
@@ -104,13 +110,16 @@ body {
         min-height: 100px;
         height: auto;
     }
-    .box-top-rated-movies .image-movie{
+
+    .box-top-rated-movies .image-movie {
         width: 100%;
     }
-    .box-top-rated-movies .item-movie .des-movie{
+
+    .box-top-rated-movies .item-movie .des-movie {
         margin-top: 30px;
         width: 100%;
     }
+
     .box-top-rated-movies .item-movie {
         flex-direction: column;
     }
