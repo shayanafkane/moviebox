@@ -7,7 +7,7 @@ export default function TopRatedMovies() {
     const [pageNumber, setPageNumber] = useState(1)
     const [data, setData] = useState()
     function GetData() {
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=06eab33cd5f147c733290f1947a2f9c0&language=en-US&page=${pageNumber}`)
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=06eab33cd5f147c733290f1947a2f9c0&language=en&page=${pageNumber}`)
             .then(res => {
                 setData(res.data.results)
                 setLoading(false)
@@ -70,7 +70,7 @@ export default function TopRatedMovies() {
                             .catch(err => {
                                 console.log(err)
                             })
-                            scrollTop()
+                        scrollTop()
                     }} className='my-4 next'>Next</Button>
                     {pageNumber == 1 ?
                         <Button variant='secondary' disabled className='my-4 back'>Back</Button>
@@ -85,13 +85,12 @@ export default function TopRatedMovies() {
                                 .catch(err => {
                                     console.log(err)
                                 })
-                                
-                          
+
+
                         }} className='my-4 back'>Back</Button>
                     }
                 </div>
             </div>
         )
     }
-
 }
