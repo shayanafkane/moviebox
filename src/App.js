@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect } from "react";
 import Header from "./Components/Header";
+import Hero from "./Components/Hero"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "swiper/css";
 import "swiper/css/navigation";
-import Hero from "./Components/Hero";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+
 function App() {
   // useEffect(() => {
 
