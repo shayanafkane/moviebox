@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'iranyekan';
+    font-family: 'uni';
     src: url('../fonts/iranyekanwebmedium.woff');
 }
 
@@ -103,5 +103,15 @@ body {
     .box-text-swiper-hero {
         min-height: 100px;
         height: auto;
+    }
+    .box-top-rated-movies .image-movie{
+        width: 100%;
+    }
+    .box-top-rated-movies .item-movie .des-movie{
+        margin-top: 30px;
+        width: 100%;
+    }
+    .box-top-rated-movies .item-movie {
+        flex-direction: column;
     }
 }
