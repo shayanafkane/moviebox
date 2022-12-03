@@ -14,6 +14,7 @@ export default function Hero() {
         })
             .catch(err => console.log(err))
     }, [])
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
     if (loading) {
         return <p>loading</p>
     } else {
@@ -24,19 +25,37 @@ export default function Hero() {
                     disableOnInteraction: false,
                 }} navigation={true} modules={[Navigation, Autoplay]} className="mySwiper">
                     {trendMovies.map(data => {
-                        return <SwiperSlide className='h-100 position-relative'>
-                            <img className='img-fluid ' src={`https://image.tmdb.org/t/p/original/` + data.backdrop_path
-                            } alt="" />
-                            <div className="position-absolute box-text-swiper-hero">
-                                <p className='text-white fs-lg mt-5 mx-4'>{
-                                    data.original_title
-                                }</p>
 
-                                <p className='overview-movie fs-m mt-2 mx-4'>
-                                    {data.overview}
-                                </p>
-                            </div>
-                        </SwiperSlide>
+                        if (mediaQuery.matches) {
+                            return <SwiperSlide className='h-100 position-relative'>
+                                <img className='img-fluid ' src={`https://image.tmdb.org/t/p/original/` + data.backdrop_path
+                                } alt="" />
+                                <div className="position-absolute box-text-swiper-hero">
+                                    <p className='text-white fs-lg mt-5 mx-4'>{
+                                        data.original_title
+                                    }</p>
+
+                                    <p className='overview-movie fs-m mt-2 mx-4'>
+                                        {data.overview}
+                                    </p>
+                                </div>
+                            </SwiperSlide>
+                        } else {
+                            return <SwiperSlide className='h-100 position-relative'>
+                                <img className='img-fluid ' src={`https://image.tmdb.org/t/p/original/` + data.poster_path
+                                } alt="" />
+                                <div className="position-absolute box-text-swiper-hero">
+                                    <p className='text-white fs-lg mt-5 mx-4'>{
+                                        data.original_title
+                                    }</p>
+
+                                    <p className='overview-movie fs-m mt-2 mx-4'>
+                                        {data.overview}
+                                    </p>
+                                </div>
+                            </SwiperSlide>
+                        }
+
                     })
 
                     }

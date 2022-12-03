@@ -4,19 +4,20 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 export default function Header() {
     return (
-        <Navbar bg="white" expand="lg" className='border-bottom'>
+        <Navbar expand="lg" className='border-bottom'>
             <Container>
+                <Navbar.Brand href="#home" className='text-white'>FilmovieBox</Navbar.Brand>
+
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav >
-                        <Nav.Link href="#home">صفحه اصلی</Nav.Link>
-                        <Nav.Link href="#link">فیلم</Nav.Link>
-                        <Nav.Link href="#link">سریال</Nav.Link>
-                        <Nav.Link href="#link">پربازدیدترین ها</Nav.Link>
-                        <Nav.Link href="#link">جدید ترین ها</Nav.Link>
+                <Navbar.Collapse id="basic-navbar-nav" className='me-auto'>
+                    <Nav className='ms-auto'>
+                        <Nav.Link href="#home" className='text-white'>Home</Nav.Link>
+                        <Nav.Link href="#link" className='text-white'>Movies</Nav.Link>
+                        <Nav.Link href="#link" className='text-white'>Series</Nav.Link>
+                        <Nav.Link href="#link" className='text-white'>Top Rated</Nav.Link>
+                        <Nav.Link href="#link" className='text-white'>News</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                <Navbar.Brand href="#home">FilmovieBox</Navbar.Brand>
             </Container>
         </Navbar>
     )

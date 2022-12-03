@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import TopRatedMovies from "./Components/TopRatedMovies";
+import { Container } from "react-bootstrap";
 
 
 function App() {
@@ -22,6 +24,10 @@ function App() {
     <div>
       <Header />
       <Hero />
+      <Container>
+      <TopRatedMovies />
+
+      </Container>
     </div>
   );
 }
