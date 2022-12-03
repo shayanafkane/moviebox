@@ -20,11 +20,8 @@ export default function TopRatedMovies() {
         GetData()
     }, [])
 
-    function nextPage() {
-        setPageNumber(pageNumber - 1)
-        setTimeout(() => {
-            GetData();
-        }, 10000)
+    function scrollTop() {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
 
 
@@ -73,6 +70,7 @@ export default function TopRatedMovies() {
                             .catch(err => {
                                 console.log(err)
                             })
+                            scrollTop()
                     }} className='my-4 next'>Next</Button>
                     {pageNumber == 1 ?
                         <Button variant='secondary' disabled className='my-4 back'>Back</Button>
@@ -87,6 +85,8 @@ export default function TopRatedMovies() {
                                 .catch(err => {
                                     console.log(err)
                                 })
+                                
+                          
                         }} className='my-4 back'>Back</Button>
                     }
                 </div>
